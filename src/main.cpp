@@ -20,11 +20,14 @@ void Countcicles()
 {
   static unsigned long lastTime = 0;
   static unsigned long count = 0;
-  long currentTime = millis();
-  if (currentTime - lastTime >= INTERVAL)
+  unsigned long currentTime = millis();
+  unsigned long intervalo = currentTime - lastTime;
+  if (intervalo >= INTERVAL)
   {
     Serial.print("Count : ");
-    Serial.println(count);
+    Serial.print(count);
+    Serial.print("  Interval : ");
+    Serial.println(intervalo);
     count = 0;
     lastTime = currentTime;
   }
